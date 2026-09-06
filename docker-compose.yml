@@ -9,11 +9,11 @@ services:
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_PASSWORD=password
-    volumes:
-      - data:/config
+    restart: unless-stopped
     ports:
       - 127.0.0.1:3306:3306
-    restart: unless-stopped
+    volumes:
+      - data:/config
 
 volumes:
   data:

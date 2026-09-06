@@ -2,6 +2,7 @@ services:
   db:
     container_name: mariadb-11
     image: lscr.io/linuxserver/mariadb:11.8.8
+    restart: unless-stopped
     environment:
       - PUID=1000
       - PGID=1000
@@ -9,7 +10,6 @@ services:
       - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_PASSWORD=password
-    restart: unless-stopped
     ports:
       - 127.0.0.1:3306:3306
     volumes:
